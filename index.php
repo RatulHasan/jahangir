@@ -35,7 +35,7 @@
     <h1 style='text-align: center;'>
       Phonebook
     </h1>
-    <form action='/' method='post' enctype='multipart/form-data'>
+    <form action='#' method='post' enctype='multipart/form-data'>
       <div style="margin-bottom: 10px">
         <label>
           Name:
