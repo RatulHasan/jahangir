@@ -31,7 +31,7 @@
 ?>
 <div style="display: flex; justify-content: center;">
 
-  <div style='width: 200px; border: 1px solid gray; padding: 30px;'>
+  <div style='width: 200px; height: 250px; border: 1px solid gray; padding: 30px; margin-top: 15px;'>
     <h1 style='text-align: center;'>
       Phonebook
     </h1>
