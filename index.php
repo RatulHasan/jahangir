@@ -57,8 +57,8 @@
 
   <ul style='list-style: none;'>
     <?php foreach ($phonebook as $contact): ?>
-      <li>
-        <img src='<?php echo $contact[2]; ?>' width='50px' height='50px'/>
+      <li style='display: flex; align-items: center; margin-bottom: 10px; border: 1px solid gray; padding: 10px; box-shadow: 0 0 5px 0 gray;'>
+        <img src='<?php echo $contact[2]; ?>' width='50px' height='50px' style='border-radius: 50%; margin-right: 10px;' />
         <?php echo $contact[0]; ?> - <?php echo $contact[1]; ?>
       </li>
     <?php endforeach; ?>
