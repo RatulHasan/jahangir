@@ -1,9 +1,9 @@
 <?php
 
   // Data submitted
-  if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $phone = $_POST['phone'];
+  // if (isset($_POST['submit'])) {
+  //   $name = $_POST['name'];
+  //   $phone = $_POST['phone'];
 
     // Check if data folder exists
     if (!file_exists('data')) {

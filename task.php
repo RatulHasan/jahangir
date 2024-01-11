@@ -2,8 +2,9 @@
 
 // Data submitted
   if (isset($_POST['submit'])) {
-    $name = $_POST['email'];
-    $phone = $_POST['password'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
     $photo = $_FILES['photo'];
 
     // Check if data folder exists
@@ -15,11 +16,11 @@
     if (!file_exists('data/phonebook.csv')) {
         $file = fopen('data/phonebook.csv', 'w');
         $photoName = str_replace(' ', '+', $name);
-        fputcsv($file, [$name, $phone, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
+        fputcsv($file, [$name, $email, $password, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
       }else{
         $file = fopen('data/phonebook.csv', 'a');
         $photoName = str_replace(' ', '+', $name);
-        fputcsv($file, [$name, $phone, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
+        fputcsv($file, [$name, $email, $password, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
       }
 
     // Check if photo folder exists 
@@ -51,14 +52,20 @@
         <form action="#" method="post" enctype='multipart/form-data' style="float: right;">
             <div style="margin-bottom: 10px">
                 <label>
+                    Name: <br>
+                    <input type="text" name="name" placeholder="jahangir"><br>
+                </label>
+            </div>
+            <div style="margin-bottom: 10px">
+                <label>
                     Email: <br>
-                    <input type="text" name="email">
+                    <input type="text" name="email" placeholder="jahangir@gmail.com">
                 </label>
             </div>
             <div style="margin-bottom: 10px">
                 <label>
                     Password:<br>
-                    <input type="password" name="password">
+                    <input type="password" name="password" placeholder="password">
                 </label>
             </div>
             <div style="margin-bottom: 10px">
