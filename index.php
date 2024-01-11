@@ -21,7 +21,6 @@
       fputcsv($file, [$name, $phone, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
     }
   }
-
   // Read data
   $file = fopen('data/phonebook.csv', 'r');
   $phonebook = [];

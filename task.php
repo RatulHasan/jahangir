@@ -4,6 +4,7 @@
   if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
+    $photo = $_FILES['photo'];
 
     // Check if data folder exists
     if (!file_exists('data')) {
@@ -30,3 +31,18 @@
   }
 ?>
 
+
+<h1>
+    Login
+</h1>
+<form action="process_form.php" method="post">
+    <label for="email">Email:</label><br>
+    <input type="text" name="name"><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" name="email"><br>
+
+    <input type='file' name='photo'/><br>
+
+    <input type="submit" value="Submit">
+  </form>
