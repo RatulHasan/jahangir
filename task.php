@@ -22,18 +22,25 @@
         $photoName = str_replace(' ', '+', $name);
         fputcsv($file, [$name, $email, $password, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
       }
-
-    // Check if photo folder exists 
-    if (!file_exists('photo')) {
-        mkdir('photo', 0777, true);
-    }
-
-    // Check if file exists 
-    // if (!file_exists('photo/photo.csv', '')) {
-    //     # code...
-    // }
     
   }
+
+  // Check if photo folder exists 
+  if (!file_exists('photo')) {
+    mkdir('photo', 0777, true);
+}
+
+// Check if file exists 
+if (!file_exists('photo/photo.csv')) {
+    $photos = fopen('photo/photo.csv', 'w');  
+    $photoName = str_replace(' ', '+', $name);
+    fputcsv($photos, [$photo, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
+}else{
+    $photos = fopen('photo/photo.csv', 'a');
+    $photoName = str_replace(' ', '+', $name);
+    fputcsv($photos, [$photo, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
+}
+
 
   // Read data
   $file = fopen('data/phonebook.csv', 'r');
@@ -41,6 +48,9 @@
   while (($line = fgetcsv($file)) !== FALSE) {
     $phonebook[] = $line;
   }
+
+
+
 ?>
 
 <div style="justify-content: center;">
