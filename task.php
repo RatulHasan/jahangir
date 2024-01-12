@@ -5,61 +5,64 @@
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $photo = $_FILES['photo'];
+    $photos = $_FILES['photo'];
 
     // Check if data folder exists
     if (!file_exists('data')) {
       mkdir('data', 0777, true);
+    }
+     // Check if photo folder exists
+    if (!file_exists('photo')) {
+        mkdir('photo', 0777, true);
     }
 
     // Check if file exists
     if (!file_exists('data/phonebook.csv')) {
         $file = fopen('data/phonebook.csv', 'w');
         $photoName = str_replace(' ', '+', $name);
-        fputcsv($file, [$name, $email, $password, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
+        fputcsv($file, [$name, $email, $password]);
       }else{
         $file = fopen('data/phonebook.csv', 'a');
         $photoName = str_replace(' ', '+', $name);
-        fputcsv($file, [$name, $email, $password, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
+        fputcsv($file, [$name, $email, $password]);
       }
-    
-  }
-
-  // Check if photo folder exists 
-  if (!file_exists('photo')) {
-    mkdir('photo', 0777, true);
 }
 
-// Check if file exists 
-if (!file_exists('photo/photo.csv')) {
-    $photos = fopen('photo/photo.csv', 'w');  
-    $photoName = str_replace(' ', '+', $name);
-    fputcsv($photos, [$photo, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
-}else{
-    $photos = fopen('photo/photo.csv', 'a');
-    $photoName = str_replace(' ', '+', $name);
-    fputcsv($photos, [$photo, 'https://ui-avatars.com/api/?name='.$photoName.'?size=128']);
+// Read data
+$file = fopen('data/phonebook.csv', 'r');
+$phonebook = [];
+while (($line = fgetcsv($file)) !== FALSE) {
+  $phonebook[] = $line;
 }
 
 
-  // Read data
-  $file = fopen('data/phonebook.csv', 'r');
-  $phonebook = [];
-  while (($line = fgetcsv($file)) !== FALSE) {
-    $phonebook[] = $line;
-  }
+
+// // Check if file exists 
+// // if (!file_exists('photo/photo.csv')) {
+// //     $photos = fopen('photo/photo.csv', 'w');  
+// //     $photoName = str_replace(' ', '+', $name);
+// //     fputcsv($photos, [$photo]);
+// // }else 
+// if(file_exists('photo/photo.csv')){
+//     $photos = fopen('photo/photo.csv', 'a');
+//     $photoName = str_replace(' ', '+', $name);
+//     fputcsv($photo, [$photos]);
+// }
+
+
+  
 
 
 
 ?>
 
-<div style="justify-content: center;">
+<div style=" display: flex; justify-content: center;">
 
-    <div style="background-color: #e9e9e9; width: 300px; height: 400px; margin: auto; margin-top: 30px; padding: 20px; border-radius: 20px;">
+    <div style="background-color: #e9e9e9; width: 300px; height: 400px; padding: 20px; border-radius: 20px;">
         <h1 style= "font-weight: bold; text-align: center;">
             Login
         </h1>
-        <form action="#" method="post" enctype='multipart/form-data' style="float: right;">
+        <form action="#" method="post" enctype='multipart/form-data'>
             <div style="margin-bottom: 10px">
                 <label>
                     Name: <br>
@@ -85,4 +88,13 @@ if (!file_exists('photo/photo.csv')) {
         </form>
     </div>
 
+    <ul style='list-style: none;'>
+    <?php foreach ($phonebook as $contact): ?>
+      <li style='display: flex; align-items: center; margin-bottom: 10px; border: 1px solid gray; padding: 10px; box-shadow: 0 0 5px 0 gray;'>
+        <img src='<?php echo $contact[2]; ?>' width='50px' height='50px' style='border-radius: 50%; margin-right: 10px;' />
+        <?php echo $contact[0]; ?> - <?php echo $contact[1]; ?>
+      </li>
+    <?php endforeach; ?>
+
 </div>
+
