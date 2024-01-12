@@ -5,7 +5,6 @@
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $photos = $_FILES['photo'];
 
     // Check if data folder exists
     if (!file_exists('data')) {
@@ -16,16 +15,47 @@
         mkdir('photo', 0777, true);
     }
 
+    $image = $_FILES['photo'];
+    
+    //Stores the filename as it was on the client computer.
+    $imagename = $_FILES['photo']['name'];
+    //Stores the filetype e.g image/jpeg
+    $imagetype = $_FILES['photo']['type'];
+    //Stores any error codes from the upload.
+    $imageerror = $_FILES['photo']['error'];
+    //Stores the tempname as it is given by the host when uploaded.
+    $imagetemp = $_FILES['photo']['tmp_name'];
+
+    $photos = 'photo/' . str_replace(' ', '_', $imagename);
+    //The path you wish to upload the image to
+    $imagePath = "images/";
+
+    if(is_uploaded_file($imagetemp)) {
+        if(move_uploaded_file($imagetemp, $photos)) {
+            echo "Sussecfully uploaded your image.";
+        }
+        else {
+            echo "Failed to move your image.";
+        }
+    }
+    else {
+        echo "Failed to upload your image.";
+    }
+
+
+
     // Check if file exists
     if (!file_exists('data/phonebook.csv')) {
         $file = fopen('data/phonebook.csv', 'w');
         $photoName = str_replace(' ', '+', $name);
-        fputcsv($file, [$name, $email, $password]);
+        fputcsv($file, [$name, $email, $password, $photos]);
       }else{
         $file = fopen('data/phonebook.csv', 'a');
         $photoName = str_replace(' ', '+', $name);
-        fputcsv($file, [$name, $email, $password]);
+        fputcsv($file, [$name, $email, $password, $photos]);
       }
+
+    
 }
 
 // Read data
@@ -35,24 +65,12 @@ while (($line = fgetcsv($file)) !== FALSE) {
   $phonebook[] = $line;
 }
 
-
-
-// // Check if file exists 
-// // if (!file_exists('photo/photo.csv')) {
-// //     $photos = fopen('photo/photo.csv', 'w');  
-// //     $photoName = str_replace(' ', '+', $name);
-// //     fputcsv($photos, [$photo]);
-// // }else 
-// if(file_exists('photo/photo.csv')){
-//     $photos = fopen('photo/photo.csv', 'a');
-//     $photoName = str_replace(' ', '+', $name);
-//     fputcsv($photo, [$photos]);
+// Read Data 
+// $file = fopen('photo/images.csv', 'r');
+// $phonebook = [];
+// while (($line = fgetcsv($file)) !== FALSE) {
+//     $phonebook[] = $line;
 // }
-
-
-  
-
-
 
 ?>
 
@@ -82,7 +100,7 @@ while (($line = fgetcsv($file)) !== FALSE) {
                 </label>
             </div>
             <div style="margin-bottom: 10px">
-                <input type='file' name='photo'/>
+                <input type='file' name='photo' tmp_name="man"/>
             </div>
             <input type="submit" name= "submit" value="Submit">
         </form>
@@ -91,10 +109,8 @@ while (($line = fgetcsv($file)) !== FALSE) {
     <ul style='list-style: none;'>
     <?php foreach ($phonebook as $contact): ?>
       <li style='display: flex; align-items: center; margin-bottom: 10px; border: 1px solid gray; padding: 10px; box-shadow: 0 0 5px 0 gray;'>
-        <img src='<?php echo $contact[2]; ?>' width='50px' height='50px' style='border-radius: 50%; margin-right: 10px;' />
+        <img src='<?php echo $contact[3]; ?>' width='50px' height='50px' style='border-radius: 50%; margin-right: 10px;' />
         <?php echo $contact[0]; ?> - <?php echo $contact[1]; ?>
       </li>
     <?php endforeach; ?>
-
 </div>
-
