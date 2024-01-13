@@ -32,7 +32,7 @@
 
     if(is_uploaded_file($imagetemp)) {
         if(move_uploaded_file($imagetemp, $photos)) {
-            echo "Sussecfully uploaded your image.";
+            // echo "Sussecfully uploaded your image.";
         }
         else {
             echo "Failed to move your image.";
@@ -41,8 +41,6 @@
     else {
         echo "Failed to upload your image.";
     }
-
-
 
     // Check if file exists
     if (!file_exists('data/phonebook.csv')) {
@@ -65,18 +63,11 @@ while (($line = fgetcsv($file)) !== FALSE) {
   $phonebook[] = $line;
 }
 
-// Read Data 
-// $file = fopen('photo/images.csv', 'r');
-// $phonebook = [];
-// while (($line = fgetcsv($file)) !== FALSE) {
-//     $phonebook[] = $line;
-// }
-
 ?>
 
 <div style=" display: flex; justify-content: center;">
 
-    <div style="background-color: #e9e9e9; width: 300px; height: 400px; padding: 20px; border-radius: 20px;">
+    <div style="background-color: #e9e9e9; width: 270px; height: 350px; padding-left: 50px; border-radius: 20px; margin-top: 20px;">
         <h1 style= "font-weight: bold; text-align: center;">
             Login
         </h1>
@@ -84,19 +75,19 @@ while (($line = fgetcsv($file)) !== FALSE) {
             <div style="margin-bottom: 10px">
                 <label>
                     Name: <br>
-                    <input type="text" name="name" placeholder="jahangir"><br>
+                    <input type="text" name="name" placeholder="jahangir"style="margin-top: 10px;"><br>
                 </label>
             </div>
             <div style="margin-bottom: 10px">
                 <label>
                     Email: <br>
-                    <input type="text" name="email" placeholder="jahangir@gmail.com">
+                    <input type="text" name="email" placeholder="jahangir@gmail.com" style="margin-top: 10px;">
                 </label>
             </div>
             <div style="margin-bottom: 10px">
                 <label>
                     Password:<br>
-                    <input type="password" name="password" placeholder="password">
+                    <input type="password" name="password" placeholder="password"style="margin-top: 10px;">
                 </label>
             </div>
             <div style="margin-bottom: 10px">
@@ -105,7 +96,7 @@ while (($line = fgetcsv($file)) !== FALSE) {
             <input type="submit" name= "submit" value="Submit">
         </form>
     </div>
-<!-- // abjaoirjoraerjaorj  -->
+
     <ul style='list-style: none;'>
     <?php foreach ($phonebook as $contact): ?>
       <li style='display: flex; align-items: center; margin-bottom: 10px; border: 1px solid gray; padding: 10px; box-shadow: 0 0 5px 0 gray;'>
