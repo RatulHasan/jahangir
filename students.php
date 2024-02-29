@@ -9,6 +9,11 @@
             width: 1000px;
             height: auto;
             margin: auto;
+            background-color: #f5eeee;
+            padding: 1px 0px 1px 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: -1px 5px 10px rgb(199 169 169 / 50%);
         }
         .header-content {
         color: green;
@@ -28,7 +33,7 @@
 <?php
 
 $students = [];
-for ( $i = 1; $i <= 30; $i ++ ) {
+for ( $i = 1; $i <= 100; $i ++ ) {
     $student = [
         'count'     => $i,
         'name'     => 'Student = ' . $i,
@@ -49,32 +54,18 @@ for ( $i = 1; $i <= 30; $i ++ ) {
 foreach ($students as $student) {
     // echo "Hello Bangladesh" . '<br>';
     echo "<div class='section'>";
-    echo "<p class='header-content'>Student " . $student['count'] . "</p>";
+    echo "<p class='header-content'>Student - " . $student['count'] . "</p>";
     echo "<p><strong> Name : </strong>" . $student['name'] ."</p>";
     echo "<p><strong> Roll : </strong>" . $student['roll'] ."</p>";
     echo "<p><strong> Class : </strong>" . $student['class'] ."</p>";
-    echo "<p><strong> Subject : </strong>" . implode(' ,' , $student['subjects']) . "</p>";
+    echo "<p><strong> Subject : </strong>" . implode(', ', $student['subjects']) . "</p>";
     echo "<p><strong> Marks : </strong>";
     echo "<ul>";
     foreach ($student['marks'] as $sub => $mark){
         echo "<li>$sub : $mark</li>";
     }
     echo "</ul>";
-    // echo "<div>";
+    echo "</div>";
 }
 
-
 ?>
-
-
-
-
-<!-- Name: Student1
-Roll: 1
-Class: Class 7
-Subjects: Math, Science, English, History
-Marks:
-  Math: 85
-  Science: 76
-  English: 94
-  History: 65 -->
