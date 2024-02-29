@@ -56,12 +56,15 @@ foreach ($students as $student) {
     echo "<p><strong> Subject : </strong>" . implode(' ,' , $student['subjects']) . "</p>";
     echo "<p><strong> Marks : </strong>";
     echo "<ul>";
+    foreach ($student['marks'] as $sub => $mark){
+        echo "<li>$sub : $mark</li>";
+    }
     echo "</ul>";
+    // echo "<div>";
 }
 
 
 ?>
-
 
 
 
