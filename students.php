@@ -17,3 +17,40 @@ for ( $i = 1; $i <= 100; $i ++ ) {
 
     $students[] = $student;
 }
+
+
+// Open file pointer for writing
+$filePointer = fopen('data/students.csv', 'w');
+
+// Write header to CSV file
+$header = ['Name', 'Roll', 'Class', 'Math Marks', 'Science Marks', 'English Marks', 'History Marks'];
+fputcsv($filePointer, $header);
+
+// Write student records to CSV file
+foreach ($students as $student) {
+    $row = [
+        $student['name'],
+        $student['roll'],
+        $student['class'],
+        $student['marks']['Math'],
+        $student['marks']['Science'],
+        $student['marks']['English'],
+        $student['marks']['History']
+    ];
+    fputcsv($fp, $row);
+}
+
+// Close the file pointer
+fclose($fp);
+
+
+
+
+
+
+
+
+
+
+?>
+
