@@ -49,6 +49,9 @@ foreach ($students as $student) {
     // echo "Hello Bangladesh" . '<br>';
     echo "<div class='section'>";
     echo "<p class='header-content'>Student information</p>";
+    echo "<p><strong> Name : </strong>" . $student['name'] ."</p>";
+    echo "<p><strong> Roll : </strong>" . $student['roll'] ."</p>";
+    echo "<p><strong> Class : </strong>" . $student['class'] ."</p>";
 }
 
 
