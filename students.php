@@ -1,9 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Informations</title>
+    <style>
+        .section{
+            width: 1000px;
+            height: auto;
+            margin: auto;
+        }
+        .header-content {
+        color: green;
+        font-family: Arial, sans-serif;
+        font-size: 22px;
+        font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
 <?php
 
 $students = [];
-for ( $i = 1; $i <= 5; $i ++ ) {
+for ( $i = 1; $i <= 30; $i ++ ) {
     $student = [
-        'name'     => 'Student' . $i,
+        'name'     => 'Student = ' . $i,
         'roll'     => $i,
         'class'    => 'Class ' .rand( 1, 12 ),
         'subjects' => [ 'Math', 'Science', 'English', 'History' ],
@@ -19,7 +46,9 @@ for ( $i = 1; $i <= 5; $i ++ ) {
 }
 
 foreach ($students as $student) {
-    echo "hello world";
+    // echo "Hello Bangladesh" . '<br>';
+    echo "<div class='section'>";
+    echo "<p class='header-content'>Student information</p>";
 }
 
 
