@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Informations</title>
     <style>
+        .heading{
+            text-align: center;
+            font-size: 50px;
+        }
         .section{
             width: 1000px;
             height: auto;
@@ -13,7 +17,7 @@
             padding: 1px 0px 1px 30px;
             margin-bottom: 20px;
             border-radius: 8px;
-            box-shadow: -1px 5px 10px rgb(199 169 169 / 50%);
+            box-shadow: -1px 5px 10px rgb(104 93 93 / 50%);
         }
         .header-content {
         color: green;
@@ -24,7 +28,7 @@
     </style>
 </head>
 <body>
-    
+    <h1 class="heading">Students Information</h1>
 </body>
 </html>
 
