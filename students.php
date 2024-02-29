@@ -30,6 +30,7 @@
 $students = [];
 for ( $i = 1; $i <= 30; $i ++ ) {
     $student = [
+        'count'     => $i,
         'name'     => 'Student = ' . $i,
         'roll'     => $i,
         'class'    => 'Class ' .rand( 1, 12 ),
@@ -48,10 +49,14 @@ for ( $i = 1; $i <= 30; $i ++ ) {
 foreach ($students as $student) {
     // echo "Hello Bangladesh" . '<br>';
     echo "<div class='section'>";
-    echo "<p class='header-content'>Student information</p>";
+    echo "<p class='header-content'>Student " . $student['count'] . "</p>";
     echo "<p><strong> Name : </strong>" . $student['name'] ."</p>";
     echo "<p><strong> Roll : </strong>" . $student['roll'] ."</p>";
     echo "<p><strong> Class : </strong>" . $student['class'] ."</p>";
+    echo "<p><strong> Subject : </strong>" . implode(' ,' , $student['subjects']) . "</p>";
+    echo "<p><strong> Marks : </strong>";
+    echo "<ul>";
+    echo "</ul>";
 }
 
 
