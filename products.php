@@ -1,4 +1,23 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information</title>
+    <!-- style area -->
+    <style>
+        .flex-container{
+        
+        }
+        .thumblnail img{
+            width : 400px;
+            height : 300px
+        }
+    </style>
+</head>
+<body>
+    <!-- php code run -->
+    <?php
 $products = [
     [
         'id'                 => 1,
@@ -555,28 +574,29 @@ $products = [
 ];
 
 foreach ($products as $product) {
+    echo "<div class='flex-container'>";
+    echo "<div class='thumblnail'>";
+    echo '<img src="' . htmlentities($product['thumbnail']) .'" alt="Product Thumbnail">';
+    echo "</div>";
+
     echo "<div>";
-    echo '<p><strong> User ID : </strong>' . $product['id'] . "</p>";
+    echo '<p><strong> Product ID : </strong>' . $product['id'] . "</p>";
     echo '<p><strong> Title : </strong>' . $product['title'] . "</p>";
     echo '<p><strong> Description : </strong>' . $product['description'] . "</p>";
     // echo '<p><strong> Price : </strong>' . $product['price'] . "</p>";
-    $price = $product['price'] * (12.96 / 100);
-    echo $price;
-    echo '<p><strong> Discount : </strong>' . $product['discountPercentage'] . "</p>";
+    $discountprice = $product['price'] - ($product['price'] * ($product['discountPercentage'] / 100));
+    // echo ( int ) $price;
+    $test = (int)$discountprice;
+    echo '<p><strong> Discount Price : </strong>' . $test;
+    echo '<p><strong> Price : </strong>' . $product['price']. "&nbsp"."&nbsp"."&nbsp"."&nbsp" . $product['discountPercentage'] . '%' . "</p>";
     echo '<p><strong> Rating : </strong>' . $product['rating'] . "</p>";
     echo '<p><strong> Stock : </strong>' . $product['stock'] . "</p>";
     echo '<p><strong> Brand : </strong>' . $product['brand'] . "</p>";
     echo "<hr>";
     echo "</div>";
+    echo "</div>";
 };
 
-$discountedPrice = 549 * (1-(12.96 / 100));
-echo $discountedPrice;
-
-$price = 549;
-$discount = 12.96;
-
-// Calculate the total price after applying the discount
-$totalPrice = $price - ($price * ($discount / 100));
-
-echo "Total price after applying $discount% discount: $totalPrice taka\n";
+?>
+</body>
+</html>
