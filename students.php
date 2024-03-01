@@ -55,21 +55,18 @@ for ( $i = 1; $i <= 100; $i ++ ) {
 
 foreach ($students as $student) {
     // echo "Hello Bangladesh" . '<br>';
-    echo "<div class='section'>";
-    echo "<p class='header-content'>Student - " . $student['count'] . "</p>";
-    echo "<p><strong> Name : </strong>" . $student['name'] ."</p>";
-    echo "<p><strong> Roll : </strong>" . $student['roll'] ."</p>";
-    echo "<p><strong> Class : </strong>" . $student['class'] ."</p>";
-    echo "<p><strong> Subject : </strong>" . implode(', ', $student['subjects']) . "</p>";
-    echo "<p><strong> Marks : </strong>";
-    echo "<ul>";
+    echo "<div class='section'>".
+    "<p class='header-content'>Student - " . $student['count'] . "</p>".
+    "<p><strong> Name : </strong>" . $student['name'] ."</p>".
+    "<p><strong> Roll : </strong>" . $student['roll'] ."</p>".
+    "<p><strong> Class : </strong>" . $student['class'] ."</p>".
+    "<p><strong> Subject : </strong>" . implode(', ', $student['subjects']) . "</p>".
+    "<p><strong> Marks : </strong>".
+    "<ul>";
     foreach ($student['marks'] as $sub => $mark){
         echo "<li>$sub : $mark</li>";
     }
     echo "</ul>";
     echo "</div>";
 }
-
-
-
 ?>
