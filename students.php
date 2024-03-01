@@ -72,9 +72,4 @@ foreach ($students as $student) {
 
 
 
-
-
-
-
-
 ?>

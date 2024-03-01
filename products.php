@@ -553,3 +553,30 @@ $products = [
         ],
     ],
 ];
+
+foreach ($products as $product) {
+    echo "<div>";
+    echo '<p><strong> User ID : </strong>' . $product['id'] . "</p>";
+    echo '<p><strong> Title : </strong>' . $product['title'] . "</p>";
+    echo '<p><strong> Description : </strong>' . $product['description'] . "</p>";
+    // echo '<p><strong> Price : </strong>' . $product['price'] . "</p>";
+    $price = $product['price'] * (12.96 / 100);
+    echo $price;
+    echo '<p><strong> Discount : </strong>' . $product['discountPercentage'] . "</p>";
+    echo '<p><strong> Rating : </strong>' . $product['rating'] . "</p>";
+    echo '<p><strong> Stock : </strong>' . $product['stock'] . "</p>";
+    echo '<p><strong> Brand : </strong>' . $product['brand'] . "</p>";
+    echo "<hr>";
+    echo "</div>";
+};
+
+$discountedPrice = 549 * (1-(12.96 / 100));
+echo $discountedPrice;
+
+$price = 549;
+$discount = 12.96;
+
+// Calculate the total price after applying the discount
+$totalPrice = $price - ($price * ($discount / 100));
+
+echo "Total price after applying $discount% discount: $totalPrice taka\n";
