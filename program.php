@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Testing program</title>
     <!-- style area  -->
     <style>
-        .flex-container{   
-            width: 1000px;
-            text-align: center;
-            margin: 0 auto;
+        .images img{
+            width: 280px;
+            height: 200px;
+            margin-left: -30px;
         }
-        .thumbnail img{
-            width: 300px;
-            height: 300px;
+        .multy-img{
+            margin-left: -30px;
         }
-        .slide-image img{
-            width: 50px;
-            height: 50px;
+        .multy-img img{
+            width: 40px;
+            height: 55px;
+            margin: 3px;
         }
-        .contant-area{
-            
+        .contant-area p{
+            font-size: 18px;
+            font-weight: 500;
+            font-family: inter;
+        }
+        .cards{
+            background-color: #f7f4f4;
+            margin-top: 10px;
+            padding: 10px 0px 20px 0px;
+            box-shadow: -1px 5px 10px rgb(104 93 93 / 50%);
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -590,25 +600,31 @@
         $discontPrice = $product['price'] - ($product['price'] * ($product['discountPercentage'] / 100));
         $price = (int)$discontPrice;
     ?>
-        <div class="flex-container">
-            <div class="thumbnail">
-                <img src="<?= htmlentities($product['thumbnail'])?>" alt="thumbnail">
+    <div class="container">
+        <div class="row cards">
+            <div class="col-5">
+                <div class="col images">
+                    <img src="<?= htmlentities($product['thumbnail'])?>" alt="thumbnail">
+                </div>
+                <div class="col multy-img">
+                    <?php foreach ($product['images'] as $image) { ?>
+                        <img src="<?= htmlentities($image) ?>" alt="Image">
+                    <?php } ?> 
+                </div>
             </div>
-            <div class="slide-image">
-                <?php foreach ($product['images'] as $image) { ?>
-                    <img src="<?= htmlentities($image) ?>" alt="Image">
-                <?php } ?>   
-            </div>
-            <div class="thumbnail-info">
-                <p class="contant-area"><?= "ID : " . $product['id'] ?></p>
-                <p class="contant-area"><?= "Title : " . $product['title'] ?></p>
-                <p class="contant-area"><?= "Description : " . $product['description'] ?></p>
-                <p class="contant-area"><?= "Price : " . $price; ?></p>
-                <p class="contant-area"><?= "DiscountPercentage : " . $product['price'] . "&nbsp". "&nbsp" . $product['discountPercentage'] ?></p>
-                <p class="contant-area"><?= "Rating : " . $product['rating'] ?></p>
-                <p class="contant-area"><?= "Category : " . $product['category'] ?></p>
+            <div class="col-7">
+                <div class="thumbnail-info">
+                    <p class="contant-area"><?= "ID : " . $product['id'] ?></p>
+                    <p class="contant-area"><?= "Title : " . $product['title'] ?></p>
+                    <p class="contant-area"><?= "Description : " . $product['description'] ?></p>
+                    <p class="contant-area"><?= "Price : " . $price; ?></p>
+                    <p class="contant-area"><?= "DiscountPercentage : " . $product['price'] . "&nbsp". "&nbsp" . $product['discountPercentage'] ?></p>
+                    <p class="contant-area"><?= "Rating : " . $product['rating'] ?></p>
+                    <p class="contant-area"><?= "Category : " . $product['category'] ?></p>
+                </div>
             </div>
         </div>
+    </div>
     <?php } ?>
 </body>
 </html>
