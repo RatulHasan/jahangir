@@ -7,7 +7,8 @@
     <!-- style area -->
     <style>
         .flex-container{
-        
+        display: grid;
+        grid-template-columns: column;
         }
         .thumblnail img{
             width : 400px;
@@ -16,28 +17,18 @@
     </style>
 </head>
 <body>
-    <!-- php code run -->
+    <!-- php width html code run -->
+    <?php foreach ($products as $product) { ?>
+    <div class="flex-container">;
+        <div class="thumbnail">;
+            <img src="<?php $product['id']?>" alt="">;
+        </div>
+        <div class="thumbnail-info"></div>
+    </div>
+    
+    <?php } ?>
     <?php
-$products = [
-    [
-        'id'                 => 1,
-        'title'              => 'iPhone 9',
-        'description'        => 'An apple mobile which is nothing like apple',
-        'price'              => 549,
-        'discountPercentage' => 12.96,
-        'rating'             => 4.69,
-        'stock'              => 94,
-        'brand'              => 'Apple',
-        'category'           => 'smartphones',
-        'thumbnail'          => 'https://cdn.dummyjson.com/product-images/1/thumbnail.jpg',
-        'images'             => [
-            'https://cdn.dummyjson.com/product-images/1/1.jpg',
-            'https://cdn.dummyjson.com/product-images/1/2.jpg',
-            'https://cdn.dummyjson.com/product-images/1/3.jpg',
-            'https://cdn.dummyjson.com/product-images/1/4.jpg',
-            'https://cdn.dummyjson.com/product-images/1/thumbnail.jpg',
-        ],
-    ],
+
     [
         'id'                 => 2,
         'title'              => 'iPhone X',
@@ -597,6 +588,6 @@ foreach ($products as $product) {
     echo "</div>";
 };
 
-?>
+// ?>
 </body>
 </html>
