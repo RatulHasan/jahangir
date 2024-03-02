@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing program</title>
+    <!-- style area  -->
+    <style>
+        .flex-container{   
+            width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .thumbnail img{
+            width: 300px;
+            height: 300px;
+        }
+        .slide-image img{
+            width: 50px;
+            height: 50px;
+        }
+        .contant-area{
+            
+        }
+    </style>
 </head>
 <body>
     
@@ -564,36 +583,32 @@
         ],
     ];
 
-?>
-
-<?php foreach ($products as $product) { 
-    // discount price calculation
-    $discontPrice = $product['price'] - ($product['price'] * ($product['discountPercentage'] / 100));
-    $price = (int)$discontPrice;
     ?>
-    <div class="flex-container">
-        <div class="thumbnail">
-            <img src="<?= htmlentities($product['thumbnail'])?>" alt="thumbnail">
-        </div>
-        <div class="slide-image">
-            <?php foreach ($product['images'] as $image) { ?>
-                <img src="<?= htmlentities($image) ?>" alt="Image">
-                <?php } ?> 
-                
+
+    <?php foreach ($products as $product) { 
+        // discount price calculation
+        $discontPrice = $product['price'] - ($product['price'] * ($product['discountPercentage'] / 100));
+        $price = (int)$discontPrice;
+    ?>
+        <div class="flex-container">
+            <div class="thumbnail">
+                <img src="<?= htmlentities($product['thumbnail'])?>" alt="thumbnail">
+            </div>
+            <div class="slide-image">
+                <?php foreach ($product['images'] as $image) { ?>
+                    <img src="<?= htmlentities($image) ?>" alt="Image">
+                <?php } ?>   
             </div>
             <div class="thumbnail-info">
-                <p><?= "ID : " . $product['id'] ?></p>
-                <p><?= "Title : " . $product['title'] ?></p>
-                <p><?= "Description : " . $product['description'] ?></p>
-                <p><?= "Price : " . $price; ?></p>
-                <p><?= "DiscountPercentage : " . $product['price'] . "&nbsp". "&nbsp" . $product['discountPercentage'] ?></p>
-                <p><?= "Rating : " . $product['rating'] ?></p>
-                <p><?= "Category : " . $product['category'] ?></p>
+                <p class="contant-area"><?= "ID : " . $product['id'] ?></p>
+                <p class="contant-area"><?= "Title : " . $product['title'] ?></p>
+                <p class="contant-area"><?= "Description : " . $product['description'] ?></p>
+                <p class="contant-area"><?= "Price : " . $price; ?></p>
+                <p class="contant-area"><?= "DiscountPercentage : " . $product['price'] . "&nbsp". "&nbsp" . $product['discountPercentage'] ?></p>
+                <p class="contant-area"><?= "Rating : " . $product['rating'] ?></p>
+                <p class="contant-area"><?= "Category : " . $product['category'] ?></p>
             </div>
         </div>
-        
-        <?php } ?>
-        
-        
-    </body>
-    </html>
+    <?php } ?>
+</body>
+</html>
