@@ -17,18 +17,27 @@
     </style>
 </head>
 <body>
-    <!-- php width html code run -->
-    <?php foreach ($products as $product) { ?>
-    <div class="flex-container">;
-        <div class="thumbnail">;
-            <img src="<?php $product['id']?>" alt="">;
-        </div>
-        <div class="thumbnail-info"></div>
-    </div>
-    
-    <?php } ?>
-    <?php
-
+   <?php
+$products = [
+    [
+        'id'                 => 1,
+        'title'              => 'iPhone 9',
+        'description'        => 'An apple mobile which is nothing like apple',
+        'price'              => 549,
+        'discountPercentage' => 12.96,
+        'rating'             => 4.69,
+        'stock'              => 94,
+        'brand'              => 'Apple',
+        'category'           => 'smartphones',
+        'thumbnail'          => 'https://cdn.dummyjson.com/product-images/1/thumbnail.jpg',
+        'images'             => [
+            'https://cdn.dummyjson.com/product-images/1/1.jpg',
+            'https://cdn.dummyjson.com/product-images/1/2.jpg',
+            'https://cdn.dummyjson.com/product-images/1/3.jpg',
+            'https://cdn.dummyjson.com/product-images/1/4.jpg',
+            'https://cdn.dummyjson.com/product-images/1/thumbnail.jpg',
+        ],
+    ],
     [
         'id'                 => 2,
         'title'              => 'iPhone X',
@@ -567,7 +576,7 @@
 foreach ($products as $product) {
     echo "<div class='flex-container'>";
     echo "<div class='thumblnail'>";
-    echo '<img src="' . htmlentities($product['thumbnail']) .'" alt="Product Thumbnail">';
+    echo '<img src="' . htmlentities($product['thumbnail']).'" alt="Product Thumbnail">';
     echo "</div>";
 
     echo "<div>";
@@ -588,6 +597,6 @@ foreach ($products as $product) {
     echo "</div>";
 };
 
-// ?>
+?>
 </body>
 </html>
