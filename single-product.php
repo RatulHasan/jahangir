@@ -11,10 +11,9 @@
             max-width: 100%;
         }
         .images img{
-            width: 100%;
-            height: 100px;
-            /* margin-left: -30px; */
-            border-radius: 10px;
+            width: 280px;
+            height: 200px;
+            margin-left: -30px;
         }
         .multy-img{
             margin-left: -30px;
@@ -601,29 +600,35 @@
 
     
     <div class="container">
-    
+    <?php foreach ($products as $product) { 
+        // discount price calculation
+        $discontPrice = $product['price'] - ($product['price'] * ($product['discountPercentage'] / 100));
+        $price = (int)$discontPrice;
+    ?>
         <div class="row cards">
-            <?php foreach ($products as $product) { 
-            // discount price calculation
-            $discontPrice = $product['price'] - ($product['price'] * ($product['discountPercentage'] / 100));
-            $price = (int)$discontPrice;
-             ?>
-            <div class="col-4">
+            <div class="col-6">
                 <div class="col images">
                     <img src="<?= htmlentities($product['thumbnail'])?>" alt="thumbnail">
+                </div>  
+                <div class="col multy-img">
+                    <?php foreach ($product['images'] as $image) { ?>
+                        <img src="<?= htmlentities($image) ?>" alt="Image">
+                    <?php } ?> 
                 </div>
+            </div>
+            <div class="col-6">
                 <div class="thumbnail-info">
                     <p class="contant-area"><?= "ID : " . $product['id'] ?></p>
                     <p class="contant-area"><?= "Title : " . $product['title'] ?></p>
+                    <p class="contant-area"><?= "Description : " . $product['description'] ?></p>
                     <p class="contant-area"><?= "Price : " . $price; ?></p>
                     <p class="contant-area"><?= "DiscountPercentage : " . $product['price'] . "&nbsp". "&nbsp" . $product['discountPercentage'] ?></p>
                     <p class="contant-area"><?= "Rating : " . $product['rating'] ?></p>
                     <p class="contant-area"><?= "Category : " . $product['category'] ?></p>
                 </div>
             </div>
-            <?php } ?>
         </div>
-       
+        <?php } ?>
     </div>
    
 </body>
