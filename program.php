@@ -36,6 +36,14 @@
             box-shadow: -1px 5px 10px rgb(104 93 93 / 50%);
             border-radius: 10px;
         }
+        .thumbnail-info{
+            font-size: 10px;
+            font-weight: bold;
+            /* line-height: 2px; */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
     </style>
 </head>
 <body>
@@ -598,10 +606,8 @@
     ];
 
     ?>
-
     
     <div class="container">
-    
         <div class="row cards">
             <?php foreach ($products as $product) { 
             // discount price calculation
@@ -616,7 +622,7 @@
                     <p class="contant-area"><?= "ID : " . $product['id'] ?></p>
                     <p class="contant-area"><?= "Title : " . $product['title'] ?></p>
                     <p class="contant-area"><?= "Price : " . $price; ?></p>
-                    <p class="contant-area"><?= "DiscountPercentage : " . $product['price'] . "&nbsp". "&nbsp" . $product['discountPercentage'] ?></p>
+                    <p class="contant-area"><?= "Discount : " . $product['price'] . "&nbsp". "&nbsp" . $product['discountPercentage'] ?></p>
                     <p class="contant-area"><?= "Rating : " . $product['rating'] ?></p>
                     <p class="contant-area"><?= "Category : " . $product['category'] ?></p>
                 </div>
