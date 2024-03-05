@@ -12,7 +12,7 @@
          $numbar1 = 10;
          $numbar2 = 5;
      
-         // Initial calculation outside the loop
+         // Initial calculation outside the loop 
          $summation = $numbar1 + $numbar2;
          $subtraction = $numbar1 - $numbar2;
          $multiplication = $numbar1 * $numbar2;
@@ -29,7 +29,19 @@
            "Multiplication: $multiplication" . '<br>' . 
            "Division: $division" . '<br>' . "Exponential: $exp " . '<br>' . "Modulo: $modulo". '<br>';
          }
-
+        
+        //  if conditon test
+        $age = 20;
+        
+        if ($age > 14) {
+            echo "You are not adult !";
+        }
+        else if($age < 10){
+            echo "You are an adult";
+        }
+        else {
+            echo "You are an child";
+        }
 
     ?>
 
