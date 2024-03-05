@@ -31,7 +31,7 @@
          }
         
         //  if conditon test
-        $age = 20;
+        $age = 9;
         
         if ($age > 14) {
             echo "You are not adult !";
