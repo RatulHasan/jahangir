@@ -28,6 +28,7 @@
             font-size: 18px;
             font-weight: 500;
             font-family: inter;
+            margin-bottom: 0px;
         }
         .cards{
             background-color: #f7f4f4;
@@ -36,12 +37,15 @@
             box-shadow: -1px 5px 10px rgb(104 93 93 / 50%);
             border-radius: 10px;
         }
-        .thumbnail-info{
+        .thumbnail-info {
             font-size: 10px;
             font-weight: bold;
             /* line-height: 2px; */
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        p{
+            margin-bottom: 0;
         }
 
     </style>
@@ -614,6 +618,7 @@
             $discontPrice = $product['price'] - ($product['price'] * ($product['discountPercentage'] / 100));
             $price = (int)$discontPrice;
              ?>
+
             <div class="col-4">
                 <div class="col images">
                     <img src="<?= htmlentities($product['thumbnail'])?>" alt="thumbnail">
@@ -625,6 +630,7 @@
                     <p class="contant-area"><?= "Discount : " . $product['price'] . "&nbsp". "&nbsp" . $product['discountPercentage'] ?></p>
                     <p class="contant-area"><?= "Rating : " . $product['rating'] ?></p>
                     <p class="contant-area"><?= "Category : " . $product['category'] ?></p>
+                    <a href="single-product.php <?php $product['id'] ?>">View</a>
                 </div>
             </div>
             <?php } ?>

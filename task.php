@@ -12,7 +12,7 @@
     }
      // Check if photo folder exists
     if (!file_exists('photo')) {
-        mkdir('photo', 0777, true);
+        mkdir('photo', 0777, true);         
     }
 
     $image = $_FILES['photo'];

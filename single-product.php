@@ -7,26 +7,20 @@
     <title>Testing program</title>
     <!-- style area  -->
     <style>
-        .images{
-            max-width: 100%;
-        }
         .images img{
-            width: 280px;
+            width: 100%;
             height: 200px;
-            margin-left: -30px;
-        }
-        .multy-img{
-            margin-left: -30px;
         }
         .multy-img img{
-            width: 40px;
-            height: 55px;
+            width: 30px;
+            height: 30px;
             margin: 3px;
         }
-        .contant-area p{
-            font-size: 18px;
+        .contant-area{
+            font-size: 12px;
             font-weight: 500;
             font-family: inter;
+            margin-bottom: 0;
         }
         .cards{
             background-color: #f7f4f4;
